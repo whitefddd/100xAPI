@@ -1,6 +1,6 @@
 # 100xlabsAPI
 
-中文说明见: [README.zh-CN.md](./README.zh-CN.md)
+Chinese guide: [README.zh-CN.md](./README.zh-CN.md)
 
 `100xlabsapi` is a clean-room CLI for managing provider configs across:
 
