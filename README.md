@@ -1,38 +1,29 @@
 # 100xlabsAPI
 
-Chinese guide: [README.zh-CN.md](./README.zh-CN.md)
+`100xlabsapi` 是一个本地 CLI 工具，用于统一管理以下客户端的服务商配置并一键切换：
 
-`100xlabsapi` is a clean-room CLI for managing provider configs across:
+- Codex
+- Claude Code
+- Gemini CLI
+- OpenCode
+- MCP 服务
 
-- Codex (`~/.codex/config.toml`, `~/.codex/auth.json`)
-- Claude Code (`~/.claude/settings.json`)
-- Gemini CLI (`~/.gemini/settings.json`, `~/.gemini/.env`)
-- OpenCode (`~/.config/opencode/opencode.jsonc`)
-- MCP server registry
+详细中文说明：`README.zh-CN.md`
 
-It stores its own manager state in:
-
-- `~/.100xlabsapi/codex.json`
-- `~/.100xlabsapi/claude.json`
-- `~/.100xlabsapi/gemini.json`
-- `~/.100xlabsapi/opencode.json`
-- `~/.100xlabsapi/mcp.json`
-- `~/.100xlabsapi/config.json` (WebDAV sync settings)
-
-## Install
+## 安装
 
 ```bash
 npm i -g 100xlabsapi
 ```
 
-Or run locally:
+或本地运行：
 
 ```bash
 npm i
 node src/index.js --help
 ```
 
-## Commands
+## 命令总览
 
 ```bash
 100xlabsapi cx add|list|use|current|edit|remove|clone
@@ -46,8 +37,20 @@ node src/index.js --help
 100xlabsapi apply
 ```
 
-## Notes
+## 配置文件位置
 
-- `use` updates local manager state and writes the target tool config.
-- All destructive writes create timestamped backups.
-- `sync` stores data remotely under `/<remoteDir>/.100xlabsapi/`.
+管理器数据保存在：
+
+- `~/.100xlabsapi/codex.json`
+- `~/.100xlabsapi/claude.json`
+- `~/.100xlabsapi/gemini.json`
+- `~/.100xlabsapi/opencode.json`
+- `~/.100xlabsapi/mcp.json`
+- `~/.100xlabsapi/config.json`
+
+切换 `use` 后会自动写入客户端真实配置：
+
+- Codex：`~/.codex/config.toml`、`~/.codex/auth.json`
+- Claude：`~/.claude/settings.json`
+- Gemini：`~/.gemini/settings.json`、`~/.gemini/.env`
+- OpenCode：`~/.config/opencode/opencode.jsonc`（或 `.json`）
